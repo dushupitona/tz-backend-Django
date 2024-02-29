@@ -1,6 +1,5 @@
 from django.db import models
 
-
 class AuthorModel(models.Model):
     name = models.CharField(max_length=128)
 
@@ -41,7 +40,7 @@ class GroupModel(models.Model):
     name = models.CharField(max_length=128)
     product_id = models.ForeignKey(to=ProductModel, on_delete=models.CASCADE)
     lessons = models.ManyToManyField(to=LessonModel)
-    students = models.ManyToManyField(to=StudentModel)
+    students = models.ManyToManyField(to=StudentModel, blank=True)
 
     def __str__(self):
         return self.name
