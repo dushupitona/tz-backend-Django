@@ -18,10 +18,10 @@ def my_m2m_changed_handler(sender, instance, action, **kwargs):
                 check = instance.groupmodel_set.filter(product_id=product.id)
                 print(check)
                 print(check.count())
-                if (group.students.count()< max_users and check.count() != 1) or check.count() != 1:
+                print(f'MAX_USERS: {max_users}')
+                if group.students.count() < max_users and check.count() != 1:
                     print(f'BEFORE: {group.students.count()}')
                     group.students.add(instance)
                     print(f'AFTER: {group.students.count()}')
                 else:
                     print('it break')
-                    break
