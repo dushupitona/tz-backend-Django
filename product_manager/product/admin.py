@@ -1,28 +1,27 @@
 from django.contrib import admin
-
 from product.models import *
 
 
 @admin.register(AuthorModel)
-class AuthorModel(admin.ModelAdmin):
+class AuthorAdmin(admin.ModelAdmin):
     list_display = ['name']
 
 
 @admin.register(ProductModel)
-class AuthorModel(admin.ModelAdmin):
+class ProductAdmin(admin.ModelAdmin):
     list_display = ['name', 'price']
 
 
 @admin.register(LessonModel)
-class AuthorModel(admin.ModelAdmin):
+class LessonAdmin(admin.ModelAdmin):
     list_display = ['name', 'product_id']
 
 
 @admin.register(GroupModel)
-class AuthorModel(admin.ModelAdmin):
+class GroupAdmin(admin.ModelAdmin):
     list_display = ['name']
 
 
 @admin.register(StudentModel)
-class AuthorModel(admin.ModelAdmin):
+class StudentAdmin(admin.ModelAdmin):
     list_display = ['name']
