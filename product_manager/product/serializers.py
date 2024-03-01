@@ -42,5 +42,5 @@ class GroupSerializer(serializers.ModelSerializer):
     students = StudentSerializer(many=True)
     class Meta:
             model = GroupModel
-            fields = ['id', 'name',     'product_id', 'students', 'lessons']
+            fields = ['id', 'name', 'product_id', 'students', 'lessons']
 

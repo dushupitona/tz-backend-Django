@@ -16,8 +16,9 @@ class StudentProductLessonsView(generics.RetrieveAPIView):
     serializer_class = GroupSerializer
 
     def get_object(self):
-        product = ProductModel.objects.get(pk=self.kwargs['product_id'])
-        group = GroupModel.objects.filter(product_id=product).first()
+        product_id = ProductModel.objects.get(pk=self.kwargs['product_id'])
+        group_id = self.kwargs['group_id']
+        group = GroupModel.objects.filter(product_id=product_id).get(id=group_id)
         if group:
             return group
         else:
