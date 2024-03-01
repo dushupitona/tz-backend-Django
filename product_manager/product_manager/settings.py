@@ -13,6 +13,9 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 import environ
 
+
+SMART_SORTING  = True
+
 env = environ.Env(
     DEBUG=(bool),
     SECRET_KEY=(str),
