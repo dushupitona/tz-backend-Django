@@ -22,5 +22,6 @@ from product.views import index
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('__debug__/', include("debug_toolbar.urls")),
+    path('api/', include('product.urls', namespace='api')),
     path('', index, name='index')
 ]
