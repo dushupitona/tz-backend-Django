@@ -28,7 +28,6 @@ else:
             for product in student_products:
                 max_users = product.max_users
                 min_group = GroupModel.objects.values('id').filter(product_id=product.id).annotate(total=Count('students')).order_by('total').first()
-                print(min_group)
                 if min_group['total'] < max_users:
                     GroupModel.objects.get(id=min_group['id']).students.add(instance)
                 else:

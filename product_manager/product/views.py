@@ -12,7 +12,7 @@ class ProductListAPIView(ListAPIView):
     serializer_class = ProductSerializer
 
 
-class StudentProductLessonsView(generics.RetrieveAPIView):
+class StudentProductLessonsAPIView(generics.RetrieveAPIView):
     serializer_class = GroupSerializer
 
     def get_object(self):
