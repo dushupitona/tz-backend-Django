@@ -1,17 +1,41 @@
 {% load static %}
+{% load mathfilters %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/index_style.css' %}">
+    <title>{{ title }}</title>
 </head>
 <body>
-    <h1><Hello/h1>
+
+
+    <div class="nav_bar">
+        <h1>Продукты</h1>
+    </div>
+
+
+    <div class="product_container">
+        {% for values in product_list %}
+            <div class="product-card">
+                    <div>
+                        <h2>{{ values.name }}</h2>
+                        <h2>{{ values.start_date }}</h2>
+                        <h2>{{ values.price }}</h2>
+                        <h2>{{ values.author }}</h2>
+                        <h2>{{ values.purchases }} %</h2>
+                        {% for group in values.groups %}
+                            <h2>{{ group.name }}</h2>
+                            <h2>{{ group.total|mul:100|div:values.max_students }} %</h2>
+                        {% endfor %}
+                    </div>
+            </div>
+        {% endfor %}
+   
+    </div>
+    
+
+
 </body>
-
-
 </html>

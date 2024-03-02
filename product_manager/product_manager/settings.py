@@ -14,7 +14,7 @@ from pathlib import Path
 import environ
 
 
-SMART_SORTING  = True
+SMART_SORTING  = False
 
 env = environ.Env(
     DEBUG=(bool),
@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'debug_toolbar',
     'rest_framework',
+    'mathfilters',
 ]
 
 MIDDLEWARE = [
@@ -135,6 +136,11 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
+
+
+STATICFILES_DIRS = [
+    BASE_DIR / 'static'
+]
 
 STATIC_URL = 'static/'
 

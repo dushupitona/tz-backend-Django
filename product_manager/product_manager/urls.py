@@ -17,11 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls import include, path
-from product.views import index
+from product.views import IndexView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('__debug__/', include("debug_toolbar.urls")),
     path('api/', include('product.urls', namespace='api')),
-    path('', index, name='index')
+    path('', IndexView.as_view(), name='index')
 ]
