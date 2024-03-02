@@ -10,6 +10,10 @@ h1 {
     font-size: 70px;
 }
 
+h2 {
+    margin: 0;
+}
+
 a {
     text-decoration: none;
 }
@@ -52,4 +56,16 @@ a {
     display: flex;
     text-align: center;
     flex-direction: column;
+}
+
+.field {
+    margin: 20px;
+}
+
+.field_name {
+    color: rgb(180, 12, 130);
+}
+
+.field_group {
+    color: #8c00ff;
 }
