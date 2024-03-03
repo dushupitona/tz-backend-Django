@@ -14,7 +14,7 @@ from pathlib import Path
 import environ
 
 
-SMART_SORTING  = False
+SMART_SORTING  = True
 
 env = environ.Env(
     DEBUG=(bool),

@@ -14,8 +14,7 @@ if not settings.SMART_SORTING:
                 max_users = product.max_users
                 product_groups = GroupModel.objects.all().filter(product_id=product.id).prefetch_related('students')
                 for group in product_groups:
-                    check = instance.groupmodel_set.filter(product_id=product.id)
-                    if group.students.count() < max_users and check.count() != 1:
+                    if group.students.count() < max_users:
                         group.students.add(instance)
                         break
                     elif group == product_groups.last():

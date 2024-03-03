@@ -41,12 +41,17 @@
                         </div>
 
                         <div class='field'>
+                            <h2 class='field_name'> Кол-во студентов: </h2>
+                            <h2>{{ values.students }}</h2>
+                        </div>
+
+                        <div class='field'>
                         <h2 class='field_name'> Процент покупок: </h2>
                         <h2>{{ values.purchases }} %</h2>
                         </div>
 
                         <div class='field'>
-                        <h2 class='field_name'> Процент заполненности в группах: </h2>
+                        <h2 class='field_name'> Процент заполнения в группах: </h2>
                         {% for group in values.groups %}
                             <h2 class='field_group'>{{ group.name }}:</h2>
                             <h2>{{ group.total|mul:100|div:values.max_students }} %</h2>

@@ -38,20 +38,23 @@ class IndexView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         student_count = StudentModel.objects.count()
+        products = ProductModel.objects.select_related('author_id')
+        groups = GroupModel.objects.select_related('author_id').values('id', 'name')
 
-        products = tuple({
+        products_dict = tuple({
             'id': product.id, 
             'name': product.name,
             'start_date': product.start_date,
             'price': product.price,
             'author': product.author_id.name,
+            'students': StudentModel.objects.filter(products=product.id).count(),
             'purchases': int(100 * StudentModel.objects.filter(products=product.id).count()/student_count) if student_count!=0 else 0,
             'max_students': product.max_users,
-            'groups': GroupModel.objects.values('id', 'name').filter(product_id=product.id).annotate(total=Count('students')),
+            'groups': groups.filter(product_id=product.id).annotate(total=Count('students')),
             } 
-          for product in ProductModel.objects.all())
+          for product in products)
 
 
-        context['product_list'] = products
+        context['product_list'] = products_dict
         return context
           
